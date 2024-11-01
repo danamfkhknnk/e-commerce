@@ -18,6 +18,10 @@ Route::middleware(['auth', 'verified','rolemanager:admin'])->group(function () {
     Route::controller(Admincontroller::class)->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/dashboard','index')->name('admin');
+            Route::get('/settings','setting')->name('admin.setting');
+            Route::get('/manage/users','manage_user')->name('admin.manage.user');
+            Route::get('/manage/stores','manage_stores')->name('admin.manage.stores');
+            Route::get('/cart/histori','cart_histori')->name('admin.manage.stores');
         });
     });
 });
